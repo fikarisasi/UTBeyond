@@ -65,6 +65,7 @@
                   Tunggu dan Amati
                 </label>
               </div>
+              <button type="submit" class="btn btn-sm btn-primary">Jawab</button>
             </blockquote>
           </div>
         </div>
@@ -93,6 +94,7 @@
                   Tidak ada perubahan
                 </label>
               </div>
+              <button type="submit" class="btn btn-sm btn-primary">Jawab</button>
             </blockquote>
           </div>
         </div>
@@ -109,25 +111,40 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="clearfix">
-          <h1 class="float-left display-3 mr-2">Audience</h1>
-          <h4 class="pt-1">This is audience page.</h4>
-          <p class="text-muted">Start changing your code.</p>
-        </div>
-        <div class="input-prepend input-group">
-          <span class="input-group-addon"><i class="fa fa-search"></i></span>
-          <input id="prependedInput" class="form-control" size="16" type="text" placeholder="What are you looking for?">
-          <span class="input-group-btn">
-            <button class="btn btn-info" type="button">Search</button>
-          </span>
+      <!-- comment -->
+      <div class="col-sm-12 mt-2">
+        <div class="card card-inverse card-warning card-ut">
+          <div class="card-header text-left">
+            Tambah komentar
+          </div>
+          <div class="card-block">
+            <form>
+              <div class="row">
+                <div class="form-group col-3">
+                  <input type="text" class="form-control" placeholder="Nama">
+                </div>
+                <div class="form-group col-9">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Komentar..." aria-label="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-send"></i></button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div id="exampleModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <p>Komentar terkirim!</p>
     </div>
   </div>
 </div>
