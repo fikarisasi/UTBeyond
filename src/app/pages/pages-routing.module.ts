@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AudienceComponent } from './audience.component';
+import { OperatorComponent } from './operator.component';
 
 import { P404Component } from './404.component';
 import { P500Component } from './500.component';
@@ -20,6 +21,13 @@ const routes: Routes = [
         component: AudienceComponent,
         data: {
           title: 'Audience Page'
+        }
+      },
+      {
+        path: 'operator',
+        component: OperatorComponent,
+        data: {
+          title: 'Operator Page'
         }
       },
       {
