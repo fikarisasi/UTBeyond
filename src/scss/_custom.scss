@@ -1,1 +1,20 @@
 // Here you can add other styles
+.navbar-ut {
+	background-color: #222 !important;
+	border-bottom: 1px solid #000 !important;
+
+	.navbar-brand {
+		background-image: none !important;
+		background-color: inherit !important;
+		border-bottom: 1px solid #000 !important;
+		color: #ffdf00;
+		font-size: 24px;
+	}
+}
+
+.card-ut{
+	.question-ut{
+		color: #000;
+		font-size: 16px;
+	}
+}
