@@ -2,13 +2,15 @@
 .navbar-ut {
 	background-color: #222 !important;
 	border-bottom: 1px solid #000 !important;
+	height: 10vh !important;
 
 	.navbar-brand {
 		background-image: none !important;
 		background-color: inherit !important;
 		border-bottom: 1px solid #000 !important;
 		color: #ffdf00;
-		font-size: 24px;
+		font-size: 34px;
+		height: inherit !important;
 	}
 }
 
@@ -17,4 +19,24 @@
 		color: #000;
 		font-size: 16px;
 	}
+}
+
+.card-progressbar-ut{
+	height: 90vh;
+	.title-hashtag-ut{
+		margin-top: 30% !important;
+		font-size: 50px;
+		font-weight: 300;
+	}
+	.progressbar-ut{
+		text-align: right;
+	}
+}
+
+.height-45vh{
+	height: 45vh;
+}
+
+.no-padding{
+	padding: 0;
 }

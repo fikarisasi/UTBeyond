@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AudienceComponent } from './audience.component';
 import { OperatorComponent } from './operator.component';
+import { DisplayComponent } from './display.component';
 
 import { P404Component } from './404.component';
 import { P500Component } from './500.component';
@@ -28,6 +29,13 @@ const routes: Routes = [
         component: OperatorComponent,
         data: {
           title: 'Operator Page'
+        }
+      },
+      {
+        path: 'display',
+        component: DisplayComponent,
+        data: {
+          title: 'Display Page'
         }
       },
       {

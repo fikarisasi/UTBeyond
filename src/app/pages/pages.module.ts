@@ -5,6 +5,7 @@ import { FormsModule }   from '@angular/forms';
 
 import { AudienceComponent } from './audience.component';
 import { OperatorComponent } from './operator.component';
+import { DisplayComponent } from './display.component';
 
 import { P404Component } from './404.component';
 import { P500Component } from './500.component';
@@ -23,6 +24,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 	declarations: [
 	AudienceComponent,
 	OperatorComponent,
+	DisplayComponent,
 	P404Component,
 	P500Component,
 	LoginComponent,
