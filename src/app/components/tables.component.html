@@ -1,0 +1,86 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <!-- <i class="fa fa-align-justify"></i> Semua table -->
+          All contents
+          <button class="btn btn-outline-primary pull-right" type="button" style="margin-top: 5px" [routerLink]="['/components/forms']"><i class="fa fa-plus"></i>&nbsp; Add new</button>
+        </div>
+        <div class="card-block">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <!-- <th>Description</th> -->
+                <th>Category</th>
+                <th>Sub Category</th>
+                <th>Featured</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let content of contents;">
+                <ng-container *ngFor="let c of content.data">
+                  <tr>
+                    <td *ngIf="c.title">{{i}}{{c.title}}</td> <!-- news -->
+                    <td *ngIf="c.place_name">{{c.place_name}}</td> <!-- place -->
+                    <td *ngIf="c.transport_name">{{c.transport_name}}</td> <!-- transport -->
+                    <td *ngIf="c.emergency_name">{{c.emergency_name}}</td> <!-- emergency -->
+                    <td *ngIf="c.event_title">{{c.event_title}}</td> <!-- event -->
+                    <!-- <td>{{c.description}}</td> -->
+                    <td>{{content.category}}</td>
+                    <td>{{c.category}}</td>
+                    <td>No</td>
+                    <td>
+                      <div class="row" style="padding: 0 5px">
+                      <a class="btn btn-link btn-sm col-md-6" (click)="editContent(c)"><i class="icon-pencil"></i></a>
+                        <a class="btn btn-link btn-sm col-md-6" data-toggle="modal" (click)="dangerModal.show(); willDeleteContent(content,c)"><i class="icon-close"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                </ng-container>
+              </ng-container>
+            </tbody>
+          </table>
+          <!-- <nav>
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav> -->
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+</div>
+
+<div bsModal #dangerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">You are going to delete the content</h4>
+        <button type="button" class="close" (click)="dangerModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <p>One fine body&hellip;</p> -->
+        <p>Content with this title will be deleted :</p>
+        <h5>{{contentTitleWillBeDeleted}}</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="dangerModal.hide()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="deleteContent(content, c); dangerModal.hide()">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
