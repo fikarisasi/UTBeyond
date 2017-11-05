@@ -9,11 +9,7 @@ import 'rxjs/add/observable/of';
 })
 export class DisplayComponent {
 
-	public current_poll = 4;
-
-	public doughnutChartLabels:string[] = ['Ya', 'Tidak'];
-	public doughnutChartData:number[] = [50, 50];
-	public doughnutChartType:string = 'doughnut';
+	public current_poll = 0;
 
 	options: CloudOptions = {
 		// if width is between 0 and 1 it will be set to the size of the upper element multiplied by the value  
@@ -26,7 +22,7 @@ export class DisplayComponent {
 	]
 
 	public doughnutChart2Labels:string[] = ['Ya', 'Tidak'];
-	public doughnutChart2Data:number[] = [50,50];
+	public doughnutChart2Data:number[] = [0,0];
 	public doughnutChart2Type:string = 'doughnut';
 	public doughnutChart2Colors:string[] = ["#FDCF00", "#FF5E60"];
 
@@ -44,17 +40,32 @@ export class DisplayComponent {
 	public percent4bfloor = 0;
 	public percent4cfloor = 0;
 
+	public doughnutChart5Labels:string[] = ['Ya', 'Tidak'];
+	public doughnutChart5Data:number[] = [0,0];
+	public doughnutChart5Type:string = 'doughnut';
+	public doughnutChart5Colors:string[] = ["#FDCF00", "#FF5E60"];
+
 	constructor(public contentService: ContentService) { 
 		this.loadData1();
 		this.loadData2();
 		this.loadData3();
 		this.loadData4();
+		this.loadData5();
 		setInterval(()=>{
 			this.loadData1();
 			this.loadData2();
 			this.loadData3();
 			this.loadData4();
+			this.loadData5();
 		}, 60000)
+		setInterval(()=>{
+			if(this.current_poll < 5){
+				this.current_poll++;
+			}
+			else{
+				this.current_poll = 0;
+			}
+		}, 5000)
 	}
 
 	public next() {
@@ -203,7 +214,18 @@ export class DisplayComponent {
 		.subscribe(data => {
 			console.log(data);
 			if(data.success){
-
+				let yescounter = 0;
+				let nocounter = 0;
+				data.data.forEach(answer => {
+					if(answer.answer == "yes"){
+						yescounter++
+					}
+					else {
+						nocounter++
+					}
+				})
+				console.log(yescounter, nocounter);
+				this.doughnutChart5Data = [yescounter, nocounter]
 			}
 			else{
 				console.log("cannot connect to api");
