@@ -10,7 +10,7 @@ export class ContentService {
   url = 'http://batucityliving-api.au-syd.mybluemix.net/api';
   new_url = 'https://api.us.apiconnect.ibmcloud.com/bluemixadminorg-smartcity/sb/api/Contents/';
   // uturl = "http://localhost:3000/api"
-  uturl = "http://utbeyondapi.mybluemix.net/api"
+  uturl = "https://utbeyondapi.mybluemix.net/api"
 
   contentHeader: Headers = new Headers({
     'x-ibm-client-id': '8b0ccfb8-4dd0-4772-8923-00b1765c7325',
