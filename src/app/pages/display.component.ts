@@ -9,7 +9,8 @@ import 'rxjs/add/observable/of';
 })
 export class DisplayComponent {
 
-	public current_poll = 1;
+	public current_poll = 2;
+
 	public doughnutChartLabels:string[] = ['Ya', 'Tidak'];
 	public doughnutChartData:number[] = [50, 50];
 	public doughnutChartType:string = 'doughnut';
@@ -21,14 +22,20 @@ export class DisplayComponent {
 		overflow: true,
 	}
 
-
 	dataAnswer1: Array<CloudData> = [
 	]
 
+	public doughnutChart2Labels:string[] = ['Ya', 'Tidak'];
+	public doughnutChart2Data:number[] = [50,50];
+	public doughnutChart2Type:string = 'doughnut';
+	public doughnutChart2Colors:string[] = ["#FDCF00", "#FF5E60"];
+
 	constructor(public contentService: ContentService) { 
 		this.loadData1();
+		this.loadData2();
 		setInterval(()=>{
-			this.loadData1();
+		this.loadData1();
+			this.loadData2();
 		}, 60000)
 	}
 
@@ -74,32 +81,74 @@ export class DisplayComponent {
 				}
 				const changedData$: Observable<Array<CloudData>> = Observable.of(cloudChange1);
 				changedData$.subscribe(res => this.dataAnswer1 = res);
+			}
+			else{
+				console.log("cannot connect to api");
+			}
+		})
+	}
 
-				// array_elements = ["a", "b", "c", "d", "e", "a", "b", "c", "f", "g", "h", "h", "h", "e", "a"];
+	loadData2(){
+		this.contentService.getAnswers(2)
+		.subscribe(data => {
+			console.log(data);
+			if(data.success){
+				let yescounter = 0;
+				let nocounter = 0;
+				data.data.forEach(answer => {
+					if(answer.answer == "yes"){
+						yescounter++
+					}
+					else {
+						nocounter++
+					}
+				})
+				console.log(yescounter, nocounter);
+				this.doughnutChart2Data = [yescounter, nocounter]
+			}
+			else{
+				console.log("cannot connect to api");
+			}
+		})
+	}
 
-				// array_elements.sort();
+	loadData3(){
+		this.contentService.getAnswers(3)
+		.subscribe(data => {
+			console.log(data);
+			if(data.success){
 
-				// var current = null;
-				// var cnt = 0;
-				// for (var i = 0; i < array_elements.length; i++) {
-					// 	if (array_elements[i] != current) {
-						// 		if (cnt > 0) {
-							// 			document.write(current + ' comes --> ' + cnt + ' times<br>');
-							// 		}
-							// 		current = array_elements[i];
-							// 		cnt = 1;
-							// 	} else {
-								// 		cnt++;
-								// 	}
-								// }
-								// if (cnt > 0) {
-									// 	document.write(current + ' comes --> ' + cnt + ' times');
-									// }
-								}
-								else{
-									console.log("cannot connect to api");
-								}
-							})
+			}
+			else{
+				console.log("cannot connect to api");
+			}
+		})
+	}
+
+	loadData4(){
+		this.contentService.getAnswers(4)
+		.subscribe(data => {
+			console.log(data);
+			if(data.success){
+
+			}
+			else{
+				console.log("cannot connect to api");
+			}
+		})
+	}
+
+	loadData5(){
+		this.contentService.getAnswers(5)
+		.subscribe(data => {
+			console.log(data);
+			if(data.success){
+
+			}
+			else{
+				console.log("cannot connect to api");
+			}
+		})
 	}
 
 }

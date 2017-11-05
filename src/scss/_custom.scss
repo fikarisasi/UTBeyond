@@ -47,7 +47,7 @@
 
 		label {
 			position: absolute;
-    		right: -60px;
+			right: -60px;
 		}
 	}
 
@@ -80,7 +80,7 @@
 
 		label {
 			position: absolute;
-    		right: -50px;
+			right: -50px;
 		}
 
 		.progress-bar {
@@ -139,5 +139,13 @@
 .bg-black {
 	.row {
 		margin: 0;
+	}
+}
+
+.question2chart{
+	canvas {
+		height: 275px !important;
+		width: 570px !important;
+		margin: auto;
 	}
 }
