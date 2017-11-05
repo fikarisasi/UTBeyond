@@ -16,44 +16,6 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '',
-    component: FullLayoutComponent,
-    canActivate: [AuthGuard],
-    data: {
-      title: 'Home'
-    },
-    children: [
-      {
-        path: 'dashboard',
-        loadChildren: './dashboard/dashboard.module#DashboardModule'
-      },
-      {
-        path: 'contents',
-        loadChildren: './contents/contents.module#ContentsModule'
-      },
-      {
-        path: 'user-management',
-        loadChildren: './user-management/user-management.module#UserManagementModule'
-      },
-      {
-        path: 'components',
-        loadChildren: './components/components.module#ComponentsModule'
-      },
-      {
-        path: 'icons',
-        loadChildren: './icons/icons.module#IconsModule'
-      },
-      {
-        path: 'widgets',
-        loadChildren: './widgets/widgets.module#WidgetsModule'
-      },
-      {
-        path: 'charts',
-        loadChildren: './chartjs/chartjs.module#ChartJSModule'
-      }
-    ]
-  },
-  {
     path: 'login',
     redirectTo: 'pages/login',
     // redirectTo: 'contents',
