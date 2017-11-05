@@ -74,6 +74,20 @@ export class AudienceComponent {
 		})
 	}
 
+	restartVote(){
+		localStorage.removeItem("answer1Answered");
+		localStorage.removeItem("answer2Answered");
+		localStorage.removeItem("answer3Answered");
+		localStorage.removeItem("answer4Answered");
+		localStorage.removeItem("answer5Answered");
+		this.answer1Answered = null;
+		this.answer2Answered = null;
+		this.answer3Answered = null;
+		this.answer4Answered = null;
+		this.answer5Answered = null;
+		this.refreshPage();
+	}
+
 	refreshPage(){
 		this.loadChosenQuestion();
 		this.loadKomentar();
