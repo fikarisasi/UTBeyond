@@ -441,9 +441,11 @@ export class ContentService {
     })
   }
 
+  //UT
+
   postShowQuestion(questionIndex){
     return Observable.create(observer => {
-      return this.http.post(this.uturl + '/showQuestions/replaceOrCreate', questionIndex)
+      return this.http.post(this.uturl + '/showQuestions', questionIndex)
       .map(res => res.json())
       // .catch(this.handleError)
       .subscribe(success => {
@@ -461,6 +463,23 @@ export class ContentService {
   getShowQuestion(){
     return Observable.create(observer => {
       return this.http.get(this.uturl + '/showQuestions')
+      .map(res => res.json())
+      // .catch(this.handleError)
+      .subscribe(success => {
+        // this.data = data;
+        observer.next({success: true, data: success});
+        observer.complete();
+      },
+      error => {
+        observer.next({success: false, data: error});
+        observer.complete();
+      })
+    })
+  }
+
+  postAnswer(answer){
+    return Observable.create(observer => {
+      return this.http.post(this.uturl + '/answers', answer)
       .map(res => res.json())
       // .catch(this.handleError)
       .subscribe(success => {
