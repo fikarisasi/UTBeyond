@@ -21,8 +21,32 @@ export class AudienceComponent {
 	answer4Answered = localStorage.getItem("answer4Answered");
 	answer5Answered = localStorage.getItem("answer5Answered");
 
+	nama = localStorage.getItem("nama");
+	namaExist = false;
+	komentar = null;
+
+	komentars: any;
+
+	showAlertKomentarTerkirim = false;
+
 	constructor(public contentService: ContentService) {
 		this.loadChosenQuestion();
+		this.loadKomentar();
+		if(this.nama){
+			this.namaExist = true;
+		}
+	}
+
+	loadKomentar(){
+		this.contentService.getKomentar()
+		.subscribe(data => {
+			console.log(data);
+			if(data.success){
+				this.komentars = data.data.sort((a, b) => {
+					return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+				})
+			}
+		})
 	}
 
 	loadChosenQuestion(){
@@ -123,6 +147,32 @@ export class AudienceComponent {
 				localStorage.setItem("answer5Answered", "true")
 				this.answer5Answered = localStorage.getItem("answer5Answered");
 				console.log(this.answer5Answered);
+			}
+			else{
+				console.log("failed connect to api");
+			}
+		})
+	}
+
+	saveName(nama){
+		localStorage.setItem("nama", nama);
+		this.nama = nama;
+		console.log(nama);
+		this.namaExist = true;
+	}
+
+	comment(komentar){
+		this.komentar = null;
+		console.log(komentar);
+		this.contentService.postKomentar({nama: this.nama, komentar: komentar})
+		.subscribe(data => {
+			if(data.success){
+				console.log(data);
+				this.showAlertKomentarTerkirim = true;
+				setTimeout(() => {
+					this.showAlertKomentarTerkirim = false;
+				}, 5000)
+				this.loadKomentar();
 			}
 			else{
 				console.log("failed connect to api");

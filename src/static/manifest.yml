@@ -1,6 +1,6 @@
 applications:
-- name: batucityliving-cms
-  host: batucityliving-cms
-  domain: au-syd.mybluemix.net
+- name: utbeyond
+  host: utbeyond
+  domain: mybluemix.net
   memory: 256M
   buildpack: staticfile_buildpack
