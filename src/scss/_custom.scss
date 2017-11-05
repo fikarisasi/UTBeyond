@@ -12,6 +12,13 @@
 		font-size: 34px;
 		height: inherit !important;
 	}
+	.btn-refresh-ut{
+		position: absolute;
+		right: 0;
+		height: 100%;
+		color: #fff;
+		width: 50px;
+	}
 }
 
 .card-ut{
@@ -99,6 +106,14 @@
 			padding: 0;
 		}
 	}
+}
+
+.btn-vote-ut{
+	white-space: pre-line;
+}
+
+.marginbottom{
+	margin-bottom: 10px !important;
 }
 
 .height-45vh{

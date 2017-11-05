@@ -49,14 +49,6 @@ export class OperatorComponent {
                 this.chosenCounter+=1;
             }
         })
-        // this.contentService.getShowQuestion()
-        // .subscribe(data => {
-        //     console.log(data);
-        //     let orderedData = data.data.sort((a, b) => {
-        //         return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-        //     })
-        //     console.log(orderedData);
-        // })
     }
 
 }
