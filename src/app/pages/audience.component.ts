@@ -76,6 +76,7 @@ export class AudienceComponent {
 
 	refreshPage(){
 		this.loadChosenQuestion();
+		this.loadKomentar();
 	}
 
 	submitAnswer1(){
@@ -152,6 +153,12 @@ export class AudienceComponent {
 				console.log("failed connect to api");
 			}
 		})
+	}
+
+	changeName(){
+		localStorage.removeItem("nama");
+		this.nama = null;
+		this.namaExist = false;
 	}
 
 	saveName(nama){

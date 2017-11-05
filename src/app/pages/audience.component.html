@@ -8,7 +8,7 @@
     <div class="row">
       <!-- question 1 -->
       <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 1 && !answer1Answered">
-  <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
+        <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
         <div class="card card-inverse card-warning text-center card-ut">
           <div class="card-block">
             <blockquote class="card-blockquote">
@@ -27,7 +27,7 @@
       </div>
       <!-- question 2 -->
       <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 2 && !answer2Answered">
-  <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
+        <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
         <div class="card card-inverse card-warning text-center card-ut">
           <div class="card-block">
             <blockquote class="card-blockquote">
@@ -40,7 +40,7 @@
       </div>
       <!-- question 3 -->
       <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 3 && !answer3Answered">
-  <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
+        <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
         <div class="card card-inverse card-warning text-center card-ut">
           <div class="card-block">
             <blockquote class="card-blockquote">
@@ -54,7 +54,7 @@
       </div>
       <!-- question 4 -->
       <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 4 && !answer4Answered">
-  <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
+        <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
         <div class="card card-inverse card-warning text-center card-ut">
           <div class="card-block">
             <blockquote class="card-blockquote">
@@ -68,7 +68,7 @@
       </div>
       <!-- question 5 -->
       <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 5 && !answer5Answered">
-  <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
+        <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
         <div class="card card-inverse card-warning text-center card-ut">
           <div class="card-block">
             <blockquote class="card-blockquote">
@@ -100,15 +100,18 @@
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Masukan nama anda." [(ngModel)]="nama" name="nama" style="border-radius: 100px;height: 42px;">
                 <span class="input-group-btn">
-                  <button class="btn btn-success btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal" style="border-radius: 100px" (click)="saveName(nama)"><i class="fa fa-send" style="position: absolute;right: 13px;bottom: 13px;"></i></button>
+                  <button class="btn btn-success btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal" style="border-radius: 100px" [disabled]="!nama" (click)="saveName(nama)"><i class="fa fa-send" style="position: absolute;right: 13px;bottom: 13px;"></i></button>
                 </span>
               </div>
             </div>
-            <div class="form-group col-12" style="margin-bottom: 0" *ngIf="namaExist">
+            <div class="form-group col-12" style="margin-bottom: 5px" *ngIf="namaExist">
               <div class="input-group">
+                <span class="input-group-btn">
+                  <button class="btn btn-info" style="border-radius: 100px;" (click)="changeName()"><i class="fa fa-edit" style="position: absolute;left: 13px;bottom: 13px;"></i></button>
+                </span>
                 <input type="text" class="form-control" placeholder="Halo {{nama}}, silahkan masukkan komentar..." [(ngModel)]="komentar" name="komentar" style="border-radius: 100px;height: 42px;">
                 <span class="input-group-btn">
-                  <button class="btn btn-success btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal" style="border-radius: 100px" (click)="comment(komentar)"><i class="fa fa-send" style="position: absolute;right: 13px;bottom: 13px;"></i></button>
+                  <button class="btn btn-success btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal" style="border-radius: 100px" [disabled]="!komentar" (click)="comment(komentar)"><i class="fa fa-send" style="position: absolute;right: 13px;bottom: 13px;"></i></button>
                 </span>
               </div>
             </div>
