@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalModule } from 'ng2-bootstrap/modal';
 import { FormsModule }   from '@angular/forms';
+import { TagCloudModule } from 'angular-tag-cloud-module';
+import { ChartsModule } from 'ng2-charts';
 
 import { AudienceComponent } from './audience.component';
 import { OperatorComponent } from './operator.component';
@@ -19,7 +21,9 @@ import { PagesRoutingModule } from './pages-routing.module';
 	PagesRoutingModule, 
 	CommonModule, 
 	ModalModule.forRoot(),
-	FormsModule 
+	FormsModule ,
+	TagCloudModule,
+	ChartsModule
 	],
 	declarations: [
 	AudienceComponent,
