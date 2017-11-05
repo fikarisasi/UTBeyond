@@ -108,7 +108,7 @@
             <div class="form-group col-12" style="margin-bottom: 5px" *ngIf="namaExist">
               <div class="input-group">
                 <span class="input-group-btn">
-                  <button class="btn btn-info" style="border-radius: 100px;" (click)="changeName()"><i class="fa fa-edit" style="position: absolute;left: 13px;bottom: 13px;"></i></button>
+                  <button type="reset" class="btn btn-info" style="border-radius: 100px;" (click)="changeName()"><i class="fa fa-edit" style="position: absolute;left: 13px;bottom: 13px;"></i></button>
                 </span>
                 <input type="text" class="form-control" placeholder="Halo {{nama}}, silahkan masukkan komentar..." [(ngModel)]="komentar" name="komentar" style="border-radius: 100px;height: 42px;">
                 <span class="input-group-btn">

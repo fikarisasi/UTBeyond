@@ -9,7 +9,7 @@ import 'rxjs/add/observable/of';
 })
 export class DisplayComponent {
 
-	public current_poll = 2;
+	public current_poll = 4;
 
 	public doughnutChartLabels:string[] = ['Ya', 'Tidak'];
 	public doughnutChartData:number[] = [50, 50];
@@ -30,12 +30,30 @@ export class DisplayComponent {
 	public doughnutChart2Type:string = 'doughnut';
 	public doughnutChart2Colors:string[] = ["#FDCF00", "#FF5E60"];
 
+	public percent3a = 0;
+	public percent3b = 0;
+	public percent3c = 0;
+	public percent3afloor = 0;
+	public percent3bfloor = 0;
+	public percent3cfloor = 0;
+
+	public percent4a = 0;
+	public percent4b = 0;
+	public percent4c = 0;
+	public percent4afloor = 0;
+	public percent4bfloor = 0;
+	public percent4cfloor = 0;
+
 	constructor(public contentService: ContentService) { 
 		this.loadData1();
 		this.loadData2();
+		this.loadData3();
+		this.loadData4();
 		setInterval(()=>{
-		this.loadData1();
+			this.loadData1();
 			this.loadData2();
+			this.loadData3();
+			this.loadData4();
 		}, 60000)
 	}
 
@@ -115,8 +133,30 @@ export class DisplayComponent {
 	loadData3(){
 		this.contentService.getAnswers(3)
 		.subscribe(data => {
+			let bucket = [];
 			console.log(data);
 			if(data.success){
+				console.log(data.data.length);
+				let a = data.data.filter(a => {
+					return a.answer == "Ya, segera"
+				})
+				console.log(a);
+				let b = data.data.filter(b => {
+					return b.answer == "Tidak usah buru-buru"
+				})
+				console.log(b);
+				let c = data.data.filter(c => {
+					return c.answer == "Tunggu dan amati"
+				})
+				console.log(c);
+
+				this.percent3a = a.length/data.data.length * 100;
+				this.percent3b = b.length/data.data.length * 100;
+				this.percent3c = c.length/data.data.length * 100;
+				this.percent3afloor = Math.floor(this.percent3a);
+				this.percent3bfloor = Math.floor(this.percent3b);
+				this.percent3cfloor = Math.floor(this.percent3c);
+				console.log(this.percent3afloor, this.percent3bfloor, this.percent3cfloor);
 
 			}
 			else{
@@ -130,7 +170,27 @@ export class DisplayComponent {
 		.subscribe(data => {
 			console.log(data);
 			if(data.success){
+				console.log(data.data.length);
+				let a = data.data.filter(a => {
+					return a.answer == "Akan mempersulit kehidupan kerja saya"
+				})
+				console.log(a);
+				let b = data.data.filter(b => {
+					return b.answer == "Akan membuat kehidupan kerja saya lebih efisien"
+				})
+				console.log(b);
+				let c = data.data.filter(c => {
+					return c.answer == "Tidak ada perubahan"
+				})
+				console.log(c);
 
+				this.percent4a = a.length/data.data.length * 100;
+				this.percent4b = b.length/data.data.length * 100;
+				this.percent4c = c.length/data.data.length * 100;
+				this.percent4afloor = Math.floor(this.percent4a);
+				this.percent4bfloor = Math.floor(this.percent4b);
+				this.percent4cfloor = Math.floor(this.percent4c);
+				console.log(this.percent4afloor, this.percent4bfloor, this.percent4cfloor);
 			}
 			else{
 				console.log("cannot connect to api");
