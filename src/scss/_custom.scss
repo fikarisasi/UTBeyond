@@ -28,8 +28,43 @@
 		font-size: 50px;
 		font-weight: 300;
 	}
+
+	.progress {
+		border-radius: 20px;
+		width: 80%;
+		margin: 0 auto;
+		padding: 5px;
+		border: 1px solid #efefef;
+		position: relative;
+		overflow: visible;
+
+		label {
+			position: absolute;
+    		right: -60px;
+		}
+	}
+
 	.progressbar-ut{
-		text-align: right;
+		height: 30px;
+		border-radius: 20px;
+	}
+}
+
+.comment-section {
+	.card-block .card-body {
+		padding: 15px;
+	}
+}
+
+.card-footer .row > div {
+	text-align: right;
+
+	button {
+		border: none;
+		border-radius: 50px;
+		width: 35px;
+		height: 35px;
+		padding: 0;
 	}
 }
 
