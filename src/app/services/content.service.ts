@@ -8,7 +8,8 @@ import 'rxjs/add/operator/map';
 export class ContentService {
   // url = 'https://api.au.apiconnect.ibmcloud.com/fikar-opus/sb/api';
   url = 'http://batucityliving-api.au-syd.mybluemix.net/api';
-  new_url = 'https://api.us.apiconnect.ibmcloud.com/bluemixadminorg-smartcity/sb/api/Contents/'
+  new_url = 'https://api.us.apiconnect.ibmcloud.com/bluemixadminorg-smartcity/sb/api/Contents/';
+  uturl = "http://localhost:3000/api"
 
   contentHeader: Headers = new Headers({
     'x-ibm-client-id': '8b0ccfb8-4dd0-4772-8923-00b1765c7325',
@@ -435,6 +436,40 @@ export class ContentService {
       .subscribe(data => {
         // this.data = data;
         observer.next(data);
+        observer.complete();
+      })
+    })
+  }
+
+  postShowQuestion(questionIndex){
+    return Observable.create(observer => {
+      return this.http.post(this.uturl + '/showQuestions/replaceOrCreate', questionIndex)
+      .map(res => res.json())
+      // .catch(this.handleError)
+      .subscribe(success => {
+        // this.data = data;
+        observer.next({success: true, data: success});
+        observer.complete();
+      },
+      error => {
+        observer.next({success: false, data: error});
+        observer.complete();
+      })
+    })
+  }
+
+  getShowQuestion(){
+    return Observable.create(observer => {
+      return this.http.get(this.uturl + '/showQuestions')
+      .map(res => res.json())
+      // .catch(this.handleError)
+      .subscribe(success => {
+        // this.data = data;
+        observer.next({success: true, data: success});
+        observer.complete();
+      },
+      error => {
+        observer.next({success: false, data: error});
         observer.complete();
       })
     })

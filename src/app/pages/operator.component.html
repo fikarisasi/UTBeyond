@@ -1,19 +1,22 @@
 <div class="question-container container">
-    <div class="row mt-2" *ngFor="let question of questions; let index = index">
-        <div class="col">
-            <label for="question-{{ index + 1 }}">Question {{ index + 1 }}</label>
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 style="padding: 25px">{{ question }}</h4>
+    <ng-container *ngFor="let question of questions; let index = index">
+        <div class="row mt-2" *ngIf="!question.chosen">
+            <div class="col">
+                <label style="color: #fff" for="question-{{ question.index }}">Pertanyaan {{ question.index }}</label>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 style="padding: 25px">{{ question.question }}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary btn-block">Pilih</button>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary btn-block" (click)="chooseQuestion(question)">Pilih</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </ng-container>
+    <h1 *ngIf="chosenCounter == 5" style="color: #fff;text-align: center;margin-top: 30%;">Semua pertanyaan telah terpilih</h1>
 </div>
