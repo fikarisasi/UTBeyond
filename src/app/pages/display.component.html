@@ -6,22 +6,21 @@
 <ng-container>
 <div class="align-items-center bg-black">
   <header class="navbar navbar-ut">
-    <a class="navbar-brand" href="#">#UT<strong>Beyond</strong></a>
+    <a class="navbar-brand" href="#">#UT<strong>BEYOND</strong></a>
   </header>
 
-  <div class="animated fadeIn">
+  <div class="animated fadeIn" style="padding: 20px 0px 0px;">
     <!-- <div class="container no-padding"> -->
       <div class="row">
         
-        <div class="col-md-6 no-padding">
-          <div class="col-md-12 no-padding">
-            <div class="card card-poll card-primary" style="margin-bottom: 0; height: 50vh">
+        <div class="col-md-6">
+          <div class="col-md-12" style="margin-bottom: 2vh">
+            <div class="card card-poll" style="margin-bottom: 0; height: 48vh">
               <div class="card-body">
-              <div class="alert alert-info" role="alert" style="    margin: 10px 20px 0px 20px;">Event hari ini: <strong>Kick Off</strong></div>
                 <div class="animated fadeIn" *ngIf="current_poll == 1">
-                  <div class="card card-inverse card-primary" style="width: 100%;">
+                  <div class="card" style="width: 100%;">
                     <div class="card-body text-center">
-                      <h5 class="card-title pt-2">Apa yang muncul di benak anda ketika mendengar kata “Digital”?</h5>
+                      <h5 class="card-title">Apa yang muncul di benak anda ketika mendengar kata “Digital”?</h5>
                       <angular-tag-cloud
                         [(data)]="dataAnswer1"
                         [width]="options.width"
@@ -32,9 +31,9 @@
                   </div>
                 </div>
                 <div class="animated fadeIn" *ngIf="current_poll == 2">
-                  <div class="card card-inverse card-primary" style="width: 100%;">
+                  <div class="card card-inverse" style="width: 100%;">
                     <div class="card-body text-center">
-                      <h5 class="card-title pt-2">Bisakah anda sukses tanpa menjadi Digital?</h5>
+                      <h5 class="card-title">Bisakah anda sukses tanpa menjadi Digital?</h5>
                       <div class="question2chart">
                         <canvas baseChart
                                 style="display: block; height: 300px"
@@ -47,9 +46,9 @@
                   </div>
                 </div>
                 <div class="animated fadeIn" *ngIf="current_poll == 3">
-                  <div class="card card-inverse card-primary" style="width: 100%;">
+                  <div class="card card-inverse" style="width: 100%;">
                     <div class="card-body text-center">
-                      <p class="card-title pt-2">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
+                      <p class="card-title">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
                       <div class="question2chart">
                         <canvas baseChart
                         style="display: block; height: 300px"
@@ -62,9 +61,9 @@
                 </div>
               </div>
               <div class="animated fadeIn" *ngIf="current_poll == 4">
-                  <div class="card card-inverse card-primary" style="width: 100%;">
+                  <div class="card card-inverse" style="width: 100%;">
                     <div class="card-body text-center">
-                      <p class="card-title pt-2">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
+                      <p class="card-title">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
                       <div class="question2chart">
                         <canvas baseChart
                         style="display: block; height: 300px"
@@ -77,9 +76,9 @@
                 </div>
               </div>
                 <div class="animated fadeIn" *ngIf="current_poll == 5">
-                  <div class="card card-inverse card-primary" style="width: 100%;">
+                  <div class="card card-inverse" style="width: 100%;">
                     <div class="card-body text-center">
-                      <p class="card-title pt-1">Bisakah kita hari ini berpegang teguh untuk melakukan “THINKING” digital dalam cara kita bekerja?</p>
+                      <p class="card-title">Bisakah kita hari ini berpegang teguh untuk melakukan “THINKING” digital dalam cara kita bekerja?</p>
                       <div class="question2chart">
                         <canvas baseChart
                                 style="display: block; height: 300px"
@@ -95,26 +94,26 @@
               <div class="card-footer">
                 <div class="row">
                   <div class="col">
-                    <button class="btn btn-danger btn-secondary" type="button" (click)="previous()" [disabled]="current_poll == 1"><i class="fa fa-angle-left"></i> Sebelumnya</button>
+                    <button class="btn btn-operate btn-warning btn-secondary" type="button" (click)="previous()" [disabled]="current_poll == 1"><i style="font-size: 25px" class="fa fa-chevron-left"></i></button>
                   </div>
                   <div class="col text-right">
-                    <button class="btn btn-danger btn-secondary" type="button" (click)="next()" [disabled]="current_poll == 5">Berikutnya <i class="fa fa-angle-right"></i> </button>
+                    <button class="btn btn-operate btn-warning btn-secondary" type="button" (click)="next()" [disabled]="current_poll == 5"><i style="font-size: 25px" class="fa fa-chevron-right"></i> </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-12 no-padding">
-            <div class="card card-warning text-center card-progressbar-ut">
+          <div class="col-md-12">
+            <div class="card text-center card-progressbar-ut">
             <div class="card-block">
-              <div class="h4 m-0 title-hashtag-ut">#UTBeyond</div>
+              <div class="h4 m-0 title-hashtag-ut"><span style="color: #ffdc00">#UT</span>BEYOND</div>
               <ng-container *ngIf="!showReadyKickOff">
-              <div>{{sisaKomentar}} komentar lagi untuk memulai kick off!</div>
+              <div style="color: white"><span style="color: #ffda1d">{{sisaKomentar}}</span> komentar lagi untuk memulai kick off!</div>
               <div class="progress progress-lg my-1">
-                <div class="progress-bar bg-success progressbar-ut" role="progressbar" [ngStyle]="{'width': persenKomentar + '%'}" attr.aria-valuenow="{{persenKomentar}}" aria-valuemin="0" aria-valuemax="100"></div>
-                <label><h4>{{persenKomentar}}%</h4></label>
+                <div class="progress-bar progress-bar-striped progressbar-ut" role="progressbar" [ngStyle]="{'width': persenKomentar + '%'}" attr.aria-valuenow="{{persenKomentar}}" aria-valuemin="0" aria-valuemax="100"></div>
+                <label><h4 style="color: #ffda1d">{{persenKomentar}}%</h4></label>
               </div>
-              <div><strong>{{komentars.length}}</strong> komentar & <strong>{{participants}}</strong> partisipan polling</div>
+              <div style="color: white"><span style="color: #ffda1d"><strong>{{komentars.length}}</strong></span> komentar & <span style="color: #ffda1d"><strong>{{participants}}</strong></span> partisipan polling</div>
               <small class="text-muted" (click)="clickSetTarget()">Atur target</small>
               
             </ng-container>
@@ -139,13 +138,13 @@
           </div>
           </div>
         </div>
-        <div class="col-md-6 no-padding">
-          <div class="card card-info comment-section" style="height: 90vh">
+        <div class="col-md-6" style="padding-right: 15px">
+          <div class="card comment-section" style="height: 90vh">
               <div class="card-header">
                 <h5>Komentar</h5>
               </div>
               <div class="card-block" style="overflow-y: auto">
-                <div class="card card-light" *ngFor="let komentar of komentars">
+                <div class="card comment" *ngFor="let komentar of komentars">
                   <div class="card-body">
                     <p class="card-text"><i class="fa fa-comment"></i> {{komentar.nama}}</p>
                     <h5 class="card-title">{{komentar.komentar}}</h5>

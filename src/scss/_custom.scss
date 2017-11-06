@@ -1,14 +1,12 @@
 // Here you can add other styles
 .navbar-ut {
-	background-color: #222 !important;
-	border-bottom: 1px solid #000 !important;
+	background-color: #feda00 !important;
 	height: 10vh !important;
 
 	.navbar-brand {
 		background-image: none !important;
 		background-color: inherit !important;
-		border-bottom: 1px solid #000 !important;
-		color: #ffdf00;
+		color: #162916;
 		font-size: 34px;
 		height: inherit !important;
 	}
@@ -28,20 +26,30 @@
 	}
 }
 
+.btn-operate {
+	border-radius: 50px;
+    padding: 0;
+    height: 50px;
+    width: 50px;
+}
+
 .card-progressbar-ut{
 	height: 40vh;
+	background: #252525;
 	.title-hashtag-ut{
 		margin-top: 7% !important;
 		font-size: 50px;
 		font-weight: 300;
+		color: white;
 	}
 
 	.progress {
-		border-radius: 20px;
-		width: 80%;
+		border-radius: 18px;
+		width: 60%;
 		margin: 0 auto;
 		padding: 5px;
-		border: 1px solid #efefef;
+		border: 3px solid #9a9a9a;
+		background-color: transparent; 
 		position: relative;
 		overflow: visible;
 
@@ -52,9 +60,15 @@
 	}
 
 	.progressbar-ut{
-		height: 30px;
-		border-radius: 20px;
+		height: 40px;
+		background-color: #feda00;
+		border-radius: 13px;
 	}
+}
+
+.card {
+	border: none;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .card-poll {
@@ -62,6 +76,13 @@
 	.card {
 		position: absolute;
 		height: 100%;
+		background: #474842;
+	}
+
+	.card-title {
+		padding: 10px 0px;
+		background: white;
+		color: black;
 	}
 
 	.card-footer {
@@ -91,8 +112,23 @@
 }
 
 .comment-section {
+	
+	background-color: #f8f8f8;
+
+	.comment {
+		border-radius: 5px;
+		background: -moz-linear-gradient(-45deg, #f8f8f8 0%, #f8f8f8 50%, #ffffff 50%, #ffffff 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(-45deg, #f8f8f8 0%,#f8f8f8 50%,#ffffff 50%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(135deg, #f8f8f8 0%,#f8f8f8 50%,#ffffff 50%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	}
+	
+	.card-header {
+		background-color: transparent;
+		border: none;
+	}
+
 	.card-block .card-body {
-		padding: 15px;
+		padding: 30px;
 	}
 
 	.card-footer .row > div {
@@ -140,6 +176,10 @@
 	.row {
 		margin: 0;
 	}
+
+	background: -moz-linear-gradient(-45deg, #595961 0%, #595961 50%, #474842 50%, #474842 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #595961 0%,#595961 50%,#474842 50%,#474842 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #595961 0%,#595961 50%,#474842 50%,#474842 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 .question2chart{
