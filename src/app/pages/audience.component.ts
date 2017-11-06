@@ -47,7 +47,16 @@ export class AudienceComponent {
 	public doughnutChart2Labels:string[] = ['Sangat urgent', 'Urgent', 'Penting tidak urgent', 'Tidak urgent', 'Tak ada opini'];
 	public doughnutChart2Data:number[] = [0,0,0,0,0];
 	public doughnutChart2Type:string = 'doughnut';
-
+	public doughnutChart2Colors: Array<any> = [
+		{ // first color
+			backgroundColor: ['#feda00','#fff','#d85040','#d0980c','#ee9a00'],
+			borderColor: '#474842',
+			pointBackgroundColor: 'rgba(225,10,24,0.2)',
+			pointBorderColor: '#fff',
+			pointHoverBackgroundColor: '#fff',
+			pointHoverBorderColor: 'rgba(225,10,24,0.2)'
+		}
+	];
 	public doughnutChart3Labels:string[] = ['Excited', 'Biasa saja', 'Takut'];
 	public doughnutChart3Data:number[] = [0,0, 0];
 	public doughnutChart3Type:string = 'doughnut';
@@ -59,6 +68,13 @@ export class AudienceComponent {
 	public doughnutChart4Labels:string[] = ['Ya', 'Tidak'];
 	public doughnutChart4Data:number[] = [0,0];
 	public doughnutChart4Type:string = 'doughnut';
+	public doughnutChartOptions: any = {
+		legend: {
+			labels: {
+				fontColor: '#fff'
+			}
+		}
+	}
 
 	loadingButton = false;
 

@@ -1,5 +1,5 @@
 <div class="align-items-center bg-black">
-  <header class="navbar navbar-ut">
+  <header class="navbar navbar-ut navbar-ut-audience">
     <a class="navbar-brand" href="#">#UT<strong>Beyond</strong></a>
     <button class="btn btn-sm btn-link btn-refresh-ut" (click)="restartVote()" style="right: 32px"><i class="fa fa-history"></i></button>
     <button class="btn btn-sm btn-link btn-refresh-ut" (click)="refreshPage()"><i class="fa fa-refresh"></i></button>
@@ -59,18 +59,20 @@
     </div>
     <!-- question 2 -->
     <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 2 && answer2Answered">
-      <div class="card card-poll card-warning" style="margin-bottom: 0; height: 50vh">
+      <div class="card card-poll card-poll-audience card-warning" style="margin-bottom: 0; height: 50vh">
         <div class="card-body">
           <div class="animated fadeIn">
             <div class="card card-warning" style="width: 100%;">
               <div class="card-body text-center">
-                <p class="card-title pt-2">Menurut anda, seberapa URGENT Digital Transformation bagi UT?</p>
+                <p class="card-title">Menurut anda, seberapa URGENT Digital Transformation bagi UT?</p>
                 <div>
                   <canvas baseChart
                   style="display: block; height: 300px"
                   [data]="doughnutChart2Data"
                   [labels]="doughnutChart2Labels"
-                  [chartType]="doughnutChart2Type">
+                  [options]="doughnutChartOptions"
+                  [chartType]="doughnutChart2Type"
+                  [colors]="doughnutChart2Colors">
                 </canvas>
               </div>
             </div>
@@ -88,22 +90,22 @@
           <p class="question-ut">Menurut anda, seberapa URGENT Digital Transformation bagi UT?</p>
           <div class="row">
             <div class="col-12">
-          <button class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer2('Sangat urgent')" *ngIf="!loadingButton">Sangat urgent</button>
+              <button class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer2('Sangat urgent')" *ngIf="!loadingButton">Sangat urgent</button>
             </div>
             <div class="col-12">
-          <button class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer2('Urgent')" *ngIf="!loadingButton">Urgent</button>
+              <button class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer2('Urgent')" *ngIf="!loadingButton">Urgent</button>
             </div>
             <div class="col-12">
-          <button class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer2('Penting tapi tidak urgent')" *ngIf="!loadingButton">Penting tapi tidak urgent</button>
+              <button class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer2('Penting tapi tidak urgent')" *ngIf="!loadingButton">Penting tapi tidak urgent</button>
             </div>
             <div class="col-12">
-          <button class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer2('Tidak urgent')" *ngIf="!loadingButton">Tidak urgent</button>
+              <button class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer2('Tidak urgent')" *ngIf="!loadingButton">Tidak urgent</button>
             </div>
             <div class="col-12">
-          <button class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer2('Tidak ada opini')" *ngIf="!loadingButton">Tidak ada opini</button>
+              <button class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer2('Tidak ada opini')" *ngIf="!loadingButton">Tidak ada opini</button>
             </div>
             <div class="col-12">
-          <button disabled class="btn btn-md btn-vote-ut-audience btn-warning" *ngIf="loadingButton">Loading..</button>
+              <button disabled class="btn btn-md btn-vote-ut-audience btn-warning" *ngIf="loadingButton">Loading..</button>
             </div>
           </div>
 
@@ -113,18 +115,20 @@
   </div>
   <!-- question 3 -->
   <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 3 && answer3Answered">
-    <div class="card card-poll card-warning" style="margin-bottom: 0; height: 50vh">
+    <div class="card card-poll card-poll-audience card-warning" style="margin-bottom: 0; height: 50vh">
       <div class="card-body">
         <div class="animated fadeIn">
           <div class="card card-warning" style="width: 100%;">
             <div class="card-body text-center">
-              <p class="card-title pt-2">Bagaimana perasaan anda terkait dimulainya digitalization di UT?</p>
+              <p class="card-title">Bagaimana perasaan anda terkait dimulainya digitalization di UT?</p>
               <div>
                 <canvas baseChart
                 style="display: block; height: 300px"
                 [data]="doughnutChart3Data"
                 [labels]="doughnutChart3Labels"
-                [chartType]="doughnutChart3Type">
+                [options]="doughnutChartOptions"
+                [chartType]="doughnutChart3Type"
+                [colors]="doughnutChart2Colors">
               </canvas>
             </div>
           </div>
@@ -136,14 +140,25 @@
 
 <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 3 && !answer3Answered">
   <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
-  <div class="card card-inverse card-warning text-center card-ut">
+  <div class="card card-link text-center card-ut">
     <div class="card-block">
       <blockquote class="card-blockquote">
         <p class="question-ut">Bagaimana perasaan anda terkait dimulainya digitalization di UT?</p>
-        <button class="col-sm-12 btn btn-md btn-vote-ut btn-primary marginbottom" (click)="submitAnswer3('Semangat dan excited')" *ngIf="!loadingButton">Semangat dan excited</button>
-        <button class="col-sm-12 btn btn-md btn-vote-ut btn-info marginbottom" (click)="submitAnswer3('Biasa saja')" *ngIf="!loadingButton">Biasa saja</button>
-        <button class="col-sm-12 btn btn-md btn-vote-ut btn-danger marginbottom" (click)="submitAnswer3('Takut dan khawatir')" *ngIf="!loadingButton">Takut dan khawatir</button>
-        <button disabled class="btn btn-md btn-vote-ut btn-primary" *ngIf="loadingButton">Loading..</button>
+        <div class="row">
+          <div class="col-12">
+            <button class="col-sm-12 btn btn-md btn-vote-ut-audience btn-warning marginbottom" (click)="submitAnswer3('Semangat dan excited')" *ngIf="!loadingButton">Semangat dan excited</button>
+          </div>
+          <div class="col-12">
+            <button class="col-sm-12 btn btn-md btn-vote-ut-audience btn-warning marginbottom" (click)="submitAnswer3('Biasa saja')" *ngIf="!loadingButton">Biasa saja</button>
+          </div>
+          <div class="col-12">
+            <button class="col-sm-12 btn btn-md btn-vote-ut-audience btn-warning marginbottom" (click)="submitAnswer3('Takut dan khawatir')" *ngIf="!loadingButton">Takut dan khawatir</button>
+          </div>
+          <div class="col-12">
+            <button disabled class="btn btn-md btn-vote-ut-audience btn-warning" *ngIf="loadingButton">Loading..</button>
+          </div>
+        </div>
+
       </blockquote>
     </div>
   </div>
@@ -187,18 +202,21 @@
       </div> -->
       <!-- question 5 -->
       <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 4 && answer4Answered">
-        <div class="card card-poll card-warning" style="margin-bottom: 0; height: 50vh">
+        <div class="card card-poll card-poll-audience card-warning" style="margin-bottom: 0; height: 50vh">
           <div class="card-body">
             <div class="animated fadeIn">
               <div class="card card-warning" style="width: 100%;">
                 <div class="card-body text-center">
-                  <p class="card-title pt-1">Apakah kita semua berkomitmen untuk mensukseskan UT Digitalization?</p>
+                  <p class="card-title">Apakah kita semua berkomitmen untuk mensukseskan UT Digitalization?</p>
                   <div>
                     <canvas baseChart
                     style="display: block; height: 300px"
                     [data]="doughnutChart4Data"
                     [labels]="doughnutChart4Labels"
-                    [chartType]="doughnutChart4Type">
+                    [options]="doughnutChartOptions"
+                    [options]="doughnutChartOptions"
+                    [chartType]="doughnutChart4Type"
+                    [colors]="doughnutChart2Colors">
                   </canvas>
                 </div>
               </div>
@@ -210,13 +228,21 @@
 
     <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 4 && !answer4Answered">
       <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
-      <div class="card card-inverse card-warning text-center card-ut">
+      <div class="card card-link text-center card-ut">
         <div class="card-block">
           <blockquote class="card-blockquote">
             <p class="question-ut">Apakah kita semua berkomitmen untuk mensukseskan UT Digitalization?</p>
-            <button type="submit" class="btn btn-md btn-vote-ut btn-primary" (click)="submitAnswer4('yes')" *ngIf="!loadingButton"><i class="fa fa-check"></i> Ya</button>
-            <button type="reset" class="btn btn-md btn-vote-ut btn-danger" (click)="submitAnswer4('no')" *ngIf="!loadingButton"><i class="fa fa-ban"></i> Tidak</button>
-            <button disabled class="btn btn-md btn-vote-ut btn-primary" *ngIf="loadingButton">Loading..</button>
+            <div class="row">
+              <div class="col-12">
+                <button type="submit" class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer4('yes')" *ngIf="!loadingButton"><i class="fa fa-check"></i> Ya</button>
+              </div>
+              <div class="col-12">
+                <button type="reset" class="btn btn-md btn-vote-ut-audience btn-warning" (click)="submitAnswer4('no')" *ngIf="!loadingButton"><i class="fa fa-ban"></i> Tidak</button>
+              </div>
+              <div class="col-12">
+                <button disabled class="btn btn-md btn-vote-ut-audience btn-warning" *ngIf="loadingButton">Loading..</button>
+              </div>
+            </div>
           </blockquote>
         </div>
       </div>
@@ -227,10 +253,10 @@
     <div class="container">
       <div class="row" style="max-height: 81vh; margin-bottom: 50px">
         <div class="col-sm-12" style="overflow-y: auto; margin: 10px 0 0 0">
-          <div class="card card-primary" style="border-radius: 10px; padding: 10px; width: 90vw; margin-bottom: 4px; color: #fff" *ngFor="let komen of komentars">
-            <div class="card-body">
+          <div class="card comment" style="border-radius: 10px; padding: 10px; width: 90vw; margin-bottom: 4px; color: #fff" *ngFor="let komen of komentars">
+            <p style="color: #000; margin: 0">
               {{komen.nama}}: {{komen.komentar}}
-            </div>
+            </p>
           </div>
         </div>
       </div>
@@ -240,18 +266,18 @@
     <div class="col-sm-12 mt-2" style="position: fixed; bottom: 0">
       <form>
         <div class="row">
-          <div class="form-group col-12" style="margin-bottom: 5px" *ngIf="!namaExist">
+          <div class="form-group col-12" style="background: #252525;margin-bottom: 0;padding: 10px 5px;" *ngIf="!namaExist">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Masukan nama anda." [(ngModel)]="nama" name="nama" style="border-radius: 100px;height: 42px;">
               <span class="input-group-btn">
-                <button class="btn btn-success btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal" style="border-radius: 100px" [disabled]="!nama" (click)="saveName(nama)"><i class="fa fa-send" style="position: absolute;right: 13px;bottom: 13px;"></i></button>
+                <button class="btn btn-warning btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal" style="border-radius: 100px" [disabled]="!nama" (click)="saveName(nama)"><i class="fa fa-send" style="position: absolute;right: 13px;bottom: 13px;"></i></button>
               </span>
             </div>
           </div>
-          <div class="form-group col-12" style="margin-bottom: 5px" *ngIf="namaExist">
+          <div class="form-group col-12" style="background: #252525;margin-bottom: 0;padding: 10px 5px;" *ngIf="namaExist">
             <div class="input-group">
               <span class="input-group-btn">
-                <button type="reset" class="btn btn-info" style="border-radius: 100px;" (click)="changeName()"><i class="fa fa-user" style="position: absolute;left: 13px;bottom: 13px;"></i></button>
+                <button type="reset" class="btn btn-warning" style="border-radius: 100px;" (click)="changeName()"><i class="fa fa-user" style="position: absolute;left: 13px;bottom: 13px;"></i></button>
               </span>
               <input type="text" class="form-control" placeholder="Halo {{nama}}, silahkan masukkan komentar..." [(ngModel)]="komentar" name="komentar" style="border-radius: 100px;height: 42px;">
               <span class="input-group-btn">
