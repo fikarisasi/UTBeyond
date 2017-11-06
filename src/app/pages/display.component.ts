@@ -40,10 +40,10 @@ export class DisplayComponent {
 	public doughnutChart5Colors:string[] = ["#FDCF00", "#FF5E60"];
 
 	public participants = 0;
-	public komentars: any;
+	public komentars = [];
 
 	displayInputTarget = false;
-	komenTarget = 100;
+	komenTarget = 500;
 	sisaKomentar = 0;
 	persenKomentar = 0;
 	showReadyKickOff = false;
@@ -109,7 +109,8 @@ export class DisplayComponent {
 				this.komentars = data.data.sort((a, b) => {
 					return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
 				})
-				this.sisaKomentar = this.komenTarget - this.komentars.length;
+				this.sisaKomentar = this.komenTarget - (this.komentars.length + this.participants);
+				console.log(this.komenTarget, this.komentars.length, this.participants);
 				this.persenKomentar = this.komentars.length/this.komenTarget*100;
 				this.persenKomentar = Math.floor(this.persenKomentar);
 				if(this.sisaKomentar<=0){
@@ -142,7 +143,11 @@ export class DisplayComponent {
 			console.log(data);
 			if(data.success){
 				let temp = data.data.sort((a,b) => {
-					return a.answer > b.answer
+					if (a.answer < b.answer)
+					    return -1;
+					  if (a.answer > b.answer)
+					    return 1;
+					  return 0;
 				})
 				console.log(temp);
 

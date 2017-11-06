@@ -60,6 +60,8 @@ export class AudienceComponent {
 	public doughnutChart5Data:number[] = [0,0];
 	public doughnutChart5Type:string = 'doughnut';
 
+	loadingButton = false;
+
 	constructor(public contentService: ContentService) {
 		this.loadChosenQuestion();
 		this.loadKomentar();
@@ -72,14 +74,16 @@ export class AudienceComponent {
 			this.namaExist = true;
 		}
 		setInterval(()=>{
-			this.loadChosenQuestion();
 			this.loadKomentar();
+		}, 10000)
+		setInterval(()=>{
+			this.loadChosenQuestion();
 			this.loadData1();
 			this.loadData2();
 			this.loadData3();
 			this.loadData4();
 			this.loadData5();
-		}, 10000)
+		}, 6000)
 	}
 
 	public next() {
@@ -101,7 +105,11 @@ export class AudienceComponent {
 			console.log(data);
 			if(data.success){
 				let temp = data.data.sort((a,b) => {
-					return a.answer > b.answer
+					if (a.answer < b.answer)
+					    return -1;
+					  if (a.answer > b.answer)
+					    return 1;
+					  return 0;
 				})
 				console.log(temp);
 
@@ -292,9 +300,11 @@ export class AudienceComponent {
 	}
 
 	submitAnswer1(){
+		this.loadingButton = true;
 		console.log(this.answer1);
 		this.contentService.postAnswer({question_number: 1, answer: this.answer1})
 		.subscribe(data => {
+		this.loadingButton = false;
 			if(data.success){
 				localStorage.setItem("answer1Answered", "true")
 				this.answer1Answered = localStorage.getItem("answer1Answered");
@@ -307,9 +317,11 @@ export class AudienceComponent {
 	}
 
 	submitAnswer2(answer){
+		this.loadingButton = true;
 		console.log(answer);
 		this.contentService.postAnswer({question_number: 2, answer: answer})
 		.subscribe(data => {
+		this.loadingButton = false;
 			if(data.success){
 				localStorage.setItem("answer2Answered", "true")
 				this.answer2Answered = localStorage.getItem("answer2Answered");
@@ -322,9 +334,11 @@ export class AudienceComponent {
 	}
 
 	submitAnswer3(answer){
+		this.loadingButton = true;
 		console.log(answer);
 		this.contentService.postAnswer({question_number: 3, answer: answer})
 		.subscribe(data => {
+		this.loadingButton = false;
 			if(data.success){
 				localStorage.setItem("answer3Answered", "true")
 				this.answer3Answered = localStorage.getItem("answer3Answered");
@@ -337,9 +351,11 @@ export class AudienceComponent {
 	}
 
 	submitAnswer4(answer){
+		this.loadingButton = true;
 		console.log(answer);
 		this.contentService.postAnswer({question_number: 4, answer: answer})
 		.subscribe(data => {
+		this.loadingButton = false;
 			if(data.success){
 				localStorage.setItem("answer4Answered", "true")
 				this.answer4Answered = localStorage.getItem("answer4Answered");
@@ -352,10 +368,12 @@ export class AudienceComponent {
 	}
 
 	submitAnswer5(answer){
+		this.loadingButton = true;
 		console.log(answer);
 
 		this.contentService.postAnswer({question_number: 5, answer: answer})
 		.subscribe(data => {
+		this.loadingButton = false;
 			if(data.success){
 				localStorage.setItem("answer5Answered", "true")
 				this.answer5Answered = localStorage.getItem("answer5Answered");
