@@ -15,7 +15,7 @@
             <div class="animated fadeIn">
               <div class="card card-warning" style="width: 100%;">
                 <div class="card-body text-center">
-                  <p class="card-title pt-2">Apa yang muncul di benak anda ketika mendengar kata “Digital”?</p>
+                  <p class="card-title pt-2">Satu kata yang mendeskripsikan "DIGITAL" bagi anda</p>
                   <angular-tag-cloud
                   [(data)]="dataAnswer1"
                   [width]="options.width"
@@ -34,7 +34,7 @@
         <div class="card card-inverse card-warning text-center card-ut">
           <div class="card-block">
             <blockquote class="card-blockquote">
-              <p class="question-ut">Apa yang muncul di benak anda ketika mendengar kata “Digital” (jawab dalam satu kata)?</p>
+              <p class="question-ut">Satu kata yang mendeskripsikan "DIGITAL" bagi anda</p>
               <form class="form-horizontal">
                 <div class="form-group row">
                   <div class="col-sm-12">
@@ -55,7 +55,7 @@
             <div class="animated fadeIn">
                   <div class="card card-warning" style="width: 100%;">
                     <div class="card-body text-center">
-                      <p class="card-title pt-2">Bisakah anda sukses tanpa menjadi Digital?</p>
+                      <p class="card-title pt-2">Menurut anda, seberapa URGENT Digital Transformation bagi UT?</p>
                       <div>
                         <canvas baseChart
                         style="display: block; height: 300px"
@@ -76,9 +76,12 @@
         <div class="card card-inverse card-warning text-center card-ut">
           <div class="card-block">
             <blockquote class="card-blockquote">
-              <p class="question-ut">Bisakah anda sukses tanpa menjadi Digital?</p>
-              <button class="btn btn-md btn-vote-ut btn-primary" (click)="submitAnswer2('yes')" *ngIf="!loadingButton"><i class="fa fa-check"></i> Ya</button>
-              <button class="btn btn-md btn-vote-ut btn-danger" (click)="submitAnswer2('no')" *ngIf="!loadingButton"><i class="fa fa-ban"></i> Tidak</button>
+              <p class="question-ut">Menurut anda, seberapa URGENT Digital Transformation bagi UT?</p>
+              <button class="btn btn-md btn-vote-ut btn-primary" (click)="submitAnswer2('Sangat urgent')" *ngIf="!loadingButton">Sangat urgent</button>
+              <button class="btn btn-md btn-vote-ut btn-success" (click)="submitAnswer2('Urgent')" *ngIf="!loadingButton">Urgent</button>
+              <button class="btn btn-md btn-vote-ut btn-info" (click)="submitAnswer2('Penting tapi tidak urgent')" *ngIf="!loadingButton">Penting tapi tidak urgent</button>
+              <button class="btn btn-md btn-vote-ut btn-outline-link" (click)="submitAnswer2('Tidak urgent')" *ngIf="!loadingButton">Tidak urgent</button>
+              <button class="btn btn-md btn-vote-ut btn-danger" (click)="submitAnswer2('Tidak ada opini')" *ngIf="!loadingButton">Tidak ada opini</button>
                 <button disabled class="btn btn-md btn-vote-ut btn-primary" *ngIf="loadingButton">Loading..</button>
             </blockquote>
           </div>
@@ -91,7 +94,7 @@
             <div class="animated fadeIn">
                   <div class="card card-warning" style="width: 100%;">
                     <div class="card-body text-center">
-                      <p class="card-title pt-2">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
+                      <p class="card-title pt-2">Bagaimana perasaan anda terkait dimulainya digitalization di UT?</p>
                       <div>
                         <canvas baseChart
                         style="display: block; height: 300px"
@@ -112,17 +115,17 @@
         <div class="card card-inverse card-warning text-center card-ut">
           <div class="card-block">
             <blockquote class="card-blockquote">
-              <p class="question-ut">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
-              <button class="col-sm-12 btn btn-md btn-vote-ut btn-primary marginbottom" (click)="submitAnswer3('Ya, segera')" *ngIf="!loadingButton">Ya, segera</button>
-              <button class="col-sm-12 btn btn-md btn-vote-ut btn-info marginbottom" (click)="submitAnswer3('Tidak usah buru-buru')" *ngIf="!loadingButton">Tidak usah buru-buru</button>
-              <button class="col-sm-12 btn btn-md btn-vote-ut btn-danger marginbottom" (click)="submitAnswer3('Tunggu dan amati')" *ngIf="!loadingButton">Tunggu dan amati</button>
+              <p class="question-ut">Bagaimana perasaan anda terkait dimulainya digitalization di UT?</p>
+              <button class="col-sm-12 btn btn-md btn-vote-ut btn-primary marginbottom" (click)="submitAnswer3('Semangat dan excited')" *ngIf="!loadingButton">Semangat dan excited</button>
+              <button class="col-sm-12 btn btn-md btn-vote-ut btn-info marginbottom" (click)="submitAnswer3('Biasa saja')" *ngIf="!loadingButton">Biasa saja</button>
+              <button class="col-sm-12 btn btn-md btn-vote-ut btn-danger marginbottom" (click)="submitAnswer3('Takut dan khawatir')" *ngIf="!loadingButton">Takut dan khawatir</button>
                 <button disabled class="btn btn-md btn-vote-ut btn-primary" *ngIf="loadingButton">Loading..</button>
             </blockquote>
           </div>
         </div>
       </div>
       <!-- question 4 -->
-      <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 4 && answer4Answered">
+      <!-- <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 4 && answer4Answered">
         <div class="card card-poll card-warning" style="margin-bottom: 0; height: 50vh">
           <div class="card-body">
             <div class="animated fadeIn">
@@ -157,21 +160,21 @@
             </blockquote>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- question 5 -->
-        <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 5 && answer5Answered">
+        <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 4 && answer4Answered">
           <div class="card card-poll card-warning" style="margin-bottom: 0; height: 50vh">
             <div class="card-body">
               <div class="animated fadeIn">
                 <div class="card card-warning" style="width: 100%;">
                   <div class="card-body text-center">
-                    <p class="card-title pt-1">Bisakah kita hari ini berpegang teguh untuk melakukan “THINKING” digital dalam cara kita bekerja?</p>
+                    <p class="card-title pt-1">Apakah kita semua berkomitmen untuk mensukseskan UT Digitalization?</p>
                     <div>
                       <canvas baseChart
                       style="display: block; height: 300px"
-                      [data]="doughnutChart5Data"
-                      [labels]="doughnutChart5Labels"
-                      [chartType]="doughnutChart5Type">
+                      [data]="doughnutChart4Data"
+                      [labels]="doughnutChart4Labels"
+                      [chartType]="doughnutChart4Type">
                     </canvas>
                   </div>
                 </div>
@@ -181,14 +184,14 @@
         </div>
       </div>
 
-      <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 5 && !answer5Answered">
+      <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 4 && !answer4Answered">
         <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
         <div class="card card-inverse card-warning text-center card-ut">
           <div class="card-block">
             <blockquote class="card-blockquote">
-              <p class="question-ut">Bisakah kita hari ini berpegang teguh untuk melakukan “THINKING” digital dalam cara kita bekerja?</p>
-              <button type="submit" class="btn btn-md btn-vote-ut btn-primary" (click)="submitAnswer5('yes')" *ngIf="!loadingButton"><i class="fa fa-check"></i> Ya</button>
-              <button type="reset" class="btn btn-md btn-vote-ut btn-danger" (click)="submitAnswer5('no')" *ngIf="!loadingButton"><i class="fa fa-ban"></i> Tidak</button>
+              <p class="question-ut">Apakah kita semua berkomitmen untuk mensukseskan UT Digitalization?</p>
+              <button type="submit" class="btn btn-md btn-vote-ut btn-primary" (click)="submitAnswer4('yes')" *ngIf="!loadingButton"><i class="fa fa-check"></i> Ya</button>
+              <button type="reset" class="btn btn-md btn-vote-ut btn-danger" (click)="submitAnswer4('no')" *ngIf="!loadingButton"><i class="fa fa-ban"></i> Tidak</button>
                 <button disabled class="btn btn-md btn-vote-ut btn-primary" *ngIf="loadingButton">Loading..</button>
             </blockquote>
           </div>

@@ -9,27 +9,22 @@ export class OperatorComponent {
     public questions = [
     {
         "index": 1,
-        "question": "Apa yang muncul di benak anda ketika mendengar kata “Digital” (jawab dalam satu kata)?",
+        "question": 'Satu kata yang mendeskripsikan "DIGITAL" bagi anda',
         "chosen": false
     },
     {
         "index": 2,
-        "question": "Bisakah anda sukses tanpa menjadi Digital?",
+        "question": "Menurut anda, seberapa URGENT Digital Transformation bagi UT?",
         "chosen": false
     },
     {
         "index": 3,
-        "question": "Apakah UT sebaiknya berubah menjadi organisasi digital?",
+        "question": "Bagaimana perasaan anda terkait dimulainya digitalization di UT?",
         "chosen": false
     },
     {
         "index": 4,
-        "question": "Apa dampak digitalisasi terhadap kehidupan kerja anda?",
-        "chosen": false
-    },
-    {
-        "index": 5,
-        "question": "Bisakah kita hari ini berpegang teguh untuk melakukan “THINKING” digital dalam cara kita bekerja (Ya / Tidak)?",
+        "question": "Apakah kita semua berkomitmen untuk mensukseskan UT Digitalization?",
         "chosen": false
     }   
     ]
