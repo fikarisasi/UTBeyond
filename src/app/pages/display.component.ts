@@ -26,7 +26,7 @@ export class DisplayComponent {
 	public doughnutChart2Type:string = 'doughnut';
 	public doughnutChart2Colors: Array<any> = [
 		{ // first color
-			backgroundColor: ['#feda00','#fff','rgba(225,10,24,0.2)','#3399cc','#ee9a00'],
+			backgroundColor: ['#feda00','#fff','#d85040','#d0980c','#ee9a00'],
 			borderColor: '#474842',
 			pointBackgroundColor: 'rgba(225,10,24,0.2)',
 			pointBorderColor: '#fff',
@@ -41,6 +41,13 @@ export class DisplayComponent {
 
 	public doughnutChart4Labels:string[] = ['Ya', 'Tidak'];
 	public doughnutChart4Data:number[] = [0,0];
+	public doughnutChartOptions: any = {
+		legend: {
+			labels: {
+				fontColor: '#fff'
+			}
+		}
+	}
 	public doughnutChart4Type:string = 'doughnut';
 
 	// public doughnutChart5Labels:string[] = ['Ya', 'Tidak'];
