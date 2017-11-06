@@ -116,7 +116,7 @@ export class AudienceComponent {
 				for (let i = 0; i < data.data.length; i++){
 					if(data.data[i].answer != current){
 						if(cnt > 0){
-							cloudChange1.push({text: current, weight: cnt, color: "#000"})
+							cloudChange1.push({text: current, weight: cnt, color: "#fff"})
 							console.log(cloudChange1);
 						}
 						current = data.data[i].answer;
@@ -126,7 +126,7 @@ export class AudienceComponent {
 					}
 				}
 				if (cnt > 0){
-					cloudChange1.push({text: current, weight: cnt, color: "#000"})
+					cloudChange1.push({text: current, weight: cnt, color: "#162916"})
 				}
 				const changedData$: Observable<Array<CloudData>> = Observable.of(cloudChange1);
 				changedData$.subscribe(res => this.dataAnswer1 = res);

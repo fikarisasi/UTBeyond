@@ -120,7 +120,7 @@ export class DisplayComponent {
 				})
 				this.sisaKomentar = this.komenTarget - (this.komentars.length + this.participants);
 				console.log(this.komenTarget, this.komentars.length, this.participants);
-				this.persenKomentar = this.komentars.length/this.komenTarget*100;
+				this.persenKomentar = (this.komentars.length + this.participants)/this.komenTarget*100;
 				this.persenKomentar = Math.floor(this.persenKomentar);
 				if(this.sisaKomentar<=0){
 					this.showReadyKickOff = true;

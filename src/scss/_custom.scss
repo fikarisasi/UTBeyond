@@ -71,6 +71,16 @@
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
+.card-poll-audience{
+	.card{
+		background: #252525 !important;
+	}
+	.card-title{
+		padding: 10px !important;
+		margin-bottom: 15%;
+	}
+}
+
 .card-poll {
 
 	.card {
@@ -144,8 +154,11 @@
 	}
 }
 
-.btn-vote-ut{
+.btn-vote-ut-audience{
 	white-space: pre-line;
+	width: 100%;
+	margin-bottom: 10px;
+	color: #000;
 }
 
 .marginbottom{
