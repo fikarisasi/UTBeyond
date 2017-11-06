@@ -1,3 +1,9 @@
+<ng-container *ngIf="displayOff">
+  <div class="animated fadeIn text-center" style="height: 100vh;display: grid;">
+      <button class="btn btn-lg btn-warning" style="margin: 25% 40%;border-radius: 100px;font-size: 25px;color: #000" (click)="displayOff=!displayOff">KICK OFF WAVE 1</button>
+  </div>
+</ng-container>
+<ng-container>
 <div class="align-items-center bg-black">
   <header class="navbar navbar-ut">
     <a class="navbar-brand" href="#">#UT<strong>Beyond</strong></a>
@@ -6,25 +12,12 @@
   <div class="animated fadeIn">
     <!-- <div class="container no-padding"> -->
       <div class="row">
-        <div class="col-md-6 no-padding">
-          <div class="card card-warning text-center card-progressbar-ut">
-            <div class="card-block">
-              <div class="alert alert-info" role="alert">Event hari ini: <strong>Kick Off</strong></div>
-              <div class="h4 m-0 title-hashtag-ut">#UTBeyond</div>
-              <div>10 tweet lagi untuk memulai kick off!</div>
-              <div class="progress progress-lg my-1">
-                <div class="progress-bar bg-success progressbar-ut" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                <label><h4>25%</h4></label>
-              </div>
-              <div><strong>25</strong> partisipan polling</div>
-              <!-- <small class="text-muted">25%</small> -->
-            </div>
-          </div>
-        </div>
+        
         <div class="col-md-6 no-padding">
           <div class="col-md-12 no-padding">
-            <div class="card card-poll card-success height-45vh" style="margin-bottom: 0">
+            <div class="card card-poll card-success" style="margin-bottom: 0; height: 50vh">
               <div class="card-body">
+              <div class="alert alert-info" role="alert" style="    margin: 10px 20px 0px 20px;">Event hari ini: <strong>Kick Off</strong></div>
                 <div class="animated fadeIn" *ngIf="current_poll == 1">
                   <div class="card card-inverse card-success" style="width: 100%;">
                     <div class="card-body text-center">
@@ -39,7 +32,7 @@
                   </div>
                 </div>
                 <div class="animated fadeIn" *ngIf="current_poll == 2">
-                  <div class="card card-success" style="width: 100%;">
+                  <div class="card card-inverse card-success" style="width: 100%;">
                     <div class="card-body text-center">
                       <h5 class="card-title pt-2">Bisakah anda sukses tanpa menjadi Digital?</h5>
                       <div class="question2chart">
@@ -54,87 +47,37 @@
                   </div>
                 </div>
                 <div class="animated fadeIn" *ngIf="current_poll == 3">
-                  <div class="card card-success" style="width: 100%;">
+                  <div class="card card-inverse card-primary" style="width: 100%;">
                     <div class="card-body text-center">
-                      <h5 class="card-title pt-2">Apakah UT sebaiknya berubah menjadi organisasi digital?</h5>
-                      <div class="row">
-                        <div class="col-md-2 p-1">
-                          Ya, segera
-                        </div>
-                        <div class="col-md-8">
-                          <div class="progress progress-lg my-1 progressbar-poll">
-                            <div class="progress-bar bg-danger" role="progressbar" [ngStyle]="{'width': percent3afloor + '%'}" attr.aria-valuenow="{{percent3afloor}}" aria-valuemin="0" aria-valuemax="100"></div>
-                            <label><h6>{{percent3afloor}}%</h6></label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-2 p-1">
-                          Tidak usah buru - buru
-                        </div>
-                        <div class="col-md-8">
-                          <div class="progress progress-lg my-1 progressbar-poll">
-                            <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width': percent3bfloor + '%'}" attr.aria-valuenow="{{percent3bfloor}}" aria-valuemin="0" aria-valuemax="100"></div>
-                            <label><h6>{{percent3bfloor}}%</h6></label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-2 p-1">
-                          Tunggu dan Amati
-                        </div>
-                        <div class="col-md-8">
-                          <div class="progress progress-lg my-1 progressbar-poll">
-                            <div class="progress-bar bg-info" role="progressbar" [ngStyle]="{'width': percent3cfloor + '%'}" attr.aria-valuenow="{{percent3cfloor}}" aria-valuemin="0" aria-valuemax="100"></div>
-                            <label><h6>{{percent3cfloor}}%</h6></label>
-                          </div>
-                        </div>
-                      </div>
+                      <p class="card-title pt-2">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
+                      <div class="question2chart">
+                        <canvas baseChart
+                        style="display: block; height: 300px"
+                        [data]="doughnutChart3Data"
+                        [labels]="doughnutChart3Labels"
+                        [chartType]="doughnutChart3Type">
+                      </canvas>
                     </div>
                   </div>
                 </div>
-                <div class="animated fadeIn" *ngIf="current_poll == 4">
-                  <div class="card card-success" style="width: 100%;">
+              </div>
+              <div class="animated fadeIn" *ngIf="current_poll == 4">
+                  <div class="card card-inverse card-primary" style="width: 100%;">
                     <div class="card-body text-center">
-                      <h5 class="card-title pt-2">Apa dampak digitalisasi terhadap kehidupan kerja anda?</h5>
-                      <div class="row">
-                        <div class="col-md-2 p-1">
-                          <small style="font-size: 8px">Mempersulit kehidupan kerja saya</small>
-                        </div>
-                        <div class="col-md-8">
-                          <div class="progress progress-lg my-1 progressbar-poll">
-                            <div class="progress-bar bg-danger" role="progressbar" [ngStyle]="{'width': percent4afloor + '%'}" attr.aria-valuenow="{{percent4afloor}}" aria-valuemin="0" aria-valuemax="100"></div>
-                            <label><h6>{{percent4afloor}}%</h6></label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-2 p-1">
-                          <small style="font-size: 8px">Kehidupan kerja saya lebih efisien</small>
-                        </div>
-                        <div class="col-md-8">
-                          <div class="progress progress-lg my-1 progressbar-poll">
-                            <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width': percent4bfloor + '%'}" attr.aria-valuenow="{{percent4bfloor}}" aria-valuemin="0" aria-valuemax="100"></div>
-                            <label><h6>{{percent4bfloor}}%</h6></label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-2 p-1">
-                          <small>Tidak ada perubahan</small>
-                        </div>
-                        <div class="col-md-8">
-                          <div class="progress progress-lg my-1 progressbar-poll">
-                            <div class="progress-bar bg-info" role="progressbar" [ngStyle]="{'width': percent4cfloor + '%'}" attr.aria-valuenow="{{percent4cfloor}}" aria-valuemin="0" aria-valuemax="100"></div>
-                            <label><h6>{{percent4cfloor}}%</h6></label>
-                          </div>
-                        </div>
-                      </div>
+                      <p class="card-title pt-2">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
+                      <div class="question2chart">
+                        <canvas baseChart
+                        style="display: block; height: 300px"
+                        [data]="doughnutChart4Data"
+                        [labels]="doughnutChart4Labels"
+                        [chartType]="doughnutChart4Type">
+                      </canvas>
                     </div>
                   </div>
                 </div>
+              </div>
                 <div class="animated fadeIn" *ngIf="current_poll == 5">
-                  <div class="card card-success" style="width: 100%;">
+                  <div class="card card-inverse card-success" style="width: 100%;">
                     <div class="card-body text-center">
                       <p class="card-title pt-1">Bisakah kita hari ini berpegang teguh untuk melakukan “THINKING” digital dalam cara kita bekerja?</p>
                       <div class="question2chart">
@@ -162,51 +105,59 @@
             </div>
           </div>
           <div class="col-md-12 no-padding">
-            <div class="card card-primary height-45vh comment-section">
-              <div class="card-header">
-                <h5>Tweets & komentar</h5>
+            <div class="card card-warning text-center card-progressbar-ut">
+            <div class="card-block">
+              <div class="h4 m-0 title-hashtag-ut">#UTBeyond</div>
+              <ng-container *ngIf="!showReadyKickOff">
+              <div>{{sisaKomentar}} komentar lagi untuk memulai kick off!</div>
+              <div class="progress progress-lg my-1">
+                <div class="progress-bar bg-success progressbar-ut" role="progressbar" [ngStyle]="{'width': persenKomentar + '%'}" attr.aria-valuenow="{{persenKomentar}}" aria-valuemin="0" aria-valuemax="100"></div>
+                <label><h4>{{persenKomentar}}%</h4></label>
               </div>
-              <div class="card-block" style="overflow-y: auto">
-                <div class="card card-light">
-                  <div class="card-body">
-                    <p class="card-text"><i class="fa fa-twitter"></i> @unitedtractors</p>
-                    <h5 class="card-title">With supporting text below as a natural lead-in to additional content.</h5>
-                  </div>
-                </div>
-
-                <div class="card card-light">
-                  <div class="card-body">
-                    <p class="card-text"><i class="fa fa-comment"></i> saluang</p>
-                    <h5 class="card-title">With supporting text below as a natural lead-in to additional content.</h5>
-                  </div>
-                </div>
-
-                <div class="card card-light">
-                  <div class="card-body">
-                    <p class="card-text"><i class="fa fa-twitter"></i> @unitedtractors</p>
-                    <h5 class="card-title">With supporting text below as a natural lead-in to additional content.</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
+              <div><strong>{{participants}}</strong> partisipan polling</div>
+              <small class="text-muted" (click)="clickSetTarget()">Atur target</small>
+              
+            </ng-container>
+            <ng-container *ngIf="showReadyKickOff">
+              <button class="btn btn-lg btn-success" style="width: 100%;margin-top: 20px;margin-bottom: 10px;border-radius: 100px;" (click)="displayOff=!displayOff">Ready to kick off!</button>
+              <p>{{komentars.length}} komentar terkumpul</p>
+              <small class="text-muted" (click)="clickSetTarget()">Atur target</small>
+            </ng-container>
+            <div class="card-footer" *ngIf="displayInputTarget">
                 <form>
                   <div class="row">
-                    <div class="col-3">
-                      <input type="text" class="form-control" placeholder="Nama">
-                    </div>
-                    <div class="col-8">
-                      <input type="text" class="form-control" placeholder="Komentar..." aria-label="Search for...">
+                    <div class="col-11">
+                      <input type="text" class="form-control" placeholder="Tulis target..." aria-label="Search for..." [(ngModel)]="komenTarget" name="komenTarget">
                     </div>
                     <div class="col-1">
-                      <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-send"></i></button>
+                      <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal" (click)="setTarget()"><i class="fa fa-send"></i></button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
+          </div>
+        </div>
+        <div class="col-md-6 no-padding">
+          <div class="card card-primary comment-section" style="height: 90vh">
+              <div class="card-header">
+                <h5>Komentar</h5>
+              </div>
+              <div class="card-block" style="overflow-y: auto">
+                <div class="card card-light" *ngFor="let komentar of komentars">
+                  <div class="card-body">
+                    <p class="card-text"><i class="fa fa-comment"></i> {{komentar.nama}}</p>
+                    <h5 class="card-title">{{komentar.komentar}}</h5>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+          
         </div>
       </div>
-    <!-- </div> -->
   </div>
 </div>
+</ng-container>

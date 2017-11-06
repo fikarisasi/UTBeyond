@@ -7,6 +7,7 @@
 
   <div class="animated fadeIn">
     <div class="row">
+
       <!-- question 1 -->
       <div class="col-sm-12" *ngIf="chosenQuestion.question_number == 1 && !answer1Answered">
         <h1 style="text-align: center;background-color: #20a8d8;margin: 0;padding: 10px;color: #fff;">Vote</h1>    
@@ -81,8 +82,98 @@
         </div>
       </div>
 
+            <div class="col-sm-12">
+              <div class="card card-poll card-warning" style="margin-bottom: 0; height: 50vh">
+                <div class="card-body">
+                  <div class="animated fadeIn" *ngIf="current_poll == 1">
+                    <div class="card card-warning" style="width: 100%;">
+                      <div class="card-body text-center">
+                        <p class="card-title pt-2">Apa yang muncul di benak anda ketika mendengar kata “Digital”?</p>
+                        <angular-tag-cloud
+                        [(data)]="dataAnswer1"
+                        [width]="options.width"
+                        [height]="options.height"
+                        [overflow]="options.overflow">
+                      </angular-tag-cloud>
+                    </div>
+                  </div>
+                </div>
+                <div class="animated fadeIn" *ngIf="current_poll == 2">
+                  <div class="card card-warning" style="width: 100%;">
+                    <div class="card-body text-center">
+                      <p class="card-title pt-2">Bisakah anda sukses tanpa menjadi Digital?</p>
+                      <div>
+                        <canvas baseChart
+                        style="display: block; height: 300px"
+                        [data]="doughnutChart2Data"
+                        [labels]="doughnutChart2Labels"
+                        [chartType]="doughnutChart2Type">
+                      </canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="animated fadeIn" *ngIf="current_poll == 3">
+                  <div class="card card-warning" style="width: 100%;">
+                    <div class="card-body text-center">
+                      <p class="card-title pt-2">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
+                      <div>
+                        <canvas baseChart
+                        style="display: block; height: 300px"
+                        [data]="doughnutChart3Data"
+                        [labels]="doughnutChart3Labels"
+                        [chartType]="doughnutChart3Type">
+                      </canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="animated fadeIn" *ngIf="current_poll == 4">
+                  <div class="card card-warning" style="width: 100%;">
+                    <div class="card-body text-center">
+                      <p class="card-title pt-2">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
+                      <div>
+                        <canvas baseChart
+                        style="display: block; height: 300px"
+                        [data]="doughnutChart4Data"
+                        [labels]="doughnutChart4Labels"
+                        [chartType]="doughnutChart4Type">
+                      </canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="animated fadeIn" *ngIf="current_poll == 5">
+                <div class="card card-warning" style="width: 100%;">
+                  <div class="card-body text-center">
+                    <p class="card-title pt-1">Bisakah kita hari ini berpegang teguh untuk melakukan “THINKING” digital dalam cara kita bekerja?</p>
+                    <div>
+                      <canvas baseChart
+                      style="display: block; height: 300px"
+                      [data]="doughnutChart5Data"
+                      [labels]="doughnutChart5Labels"
+                      [chartType]="doughnutChart5Type">
+                    </canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col">
+                <button class="btn btn-sm btn-danger btn-secondary" type="button" (click)="previous()" [disabled]="current_poll == 1"><i class="fa fa-angle-left"></i> Sebelumnya</button>
+              </div>
+              <div class="col text-right">
+                <button class="btn btn-sm btn-danger btn-secondary" type="button" (click)="next()" [disabled]="current_poll == 5">Berikutnya <i class="fa fa-angle-right"></i> </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="container">
-        <div class="row" style="max-height: 81vh">
+        <div class="row" style="max-height: 81vh; margin-bottom: 50px">
           <div class="col-sm-12" style="overflow-y: auto; margin: 10px 0 0 0">
             <div class="card card-success" style="border-radius: 10px; padding: 10px; width: 90vw; margin-bottom: 4px; color: #fff" *ngFor="let komen of komentars">
               <div class="card-body">
@@ -108,7 +199,7 @@
             <div class="form-group col-12" style="margin-bottom: 5px" *ngIf="namaExist">
               <div class="input-group">
                 <span class="input-group-btn">
-                  <button type="reset" class="btn btn-info" style="border-radius: 100px;" (click)="changeName()"><i class="fa fa-edit" style="position: absolute;left: 13px;bottom: 13px;"></i></button>
+                  <button type="reset" class="btn btn-info" style="border-radius: 100px;" (click)="changeName()"><i class="fa fa-user" style="position: absolute;left: 13px;bottom: 13px;"></i></button>
                 </span>
                 <input type="text" class="form-control" placeholder="Halo {{nama}}, silahkan masukkan komentar..." [(ngModel)]="komentar" name="komentar" style="border-radius: 100px;height: 42px;">
                 <span class="input-group-btn">

@@ -495,6 +495,23 @@ export class ContentService {
     })
   }
 
+  getAnswer(){
+    return Observable.create(observer => {
+      return this.http.get(this.uturl + '/answers')
+      .map(res => res.json())
+      // .catch(this.handleError)
+      .subscribe(success => {
+        // this.data = data;
+        observer.next({success: true, data: success});
+        observer.complete();
+      },
+      error => {
+        observer.next({success: false, data: error});
+        observer.complete();
+      })
+    })
+  }
+
   getAnswers(questionIndex){
     return Observable.create(observer => {
       return this.http.get(this.uturl + '/answers?filter[where][question_number]=' + questionIndex)

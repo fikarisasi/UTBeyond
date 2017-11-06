@@ -1,6 +1,6 @@
 <div class="question-container container">
     <ng-container *ngFor="let question of questions; let index = index">
-        <div class="row mt-2" *ngIf="!question.chosen">
+        <div class="row mt-2">
             <div class="col">
                 <label style="color: #fff" for="question-{{ question.index }}">Pertanyaan {{ question.index }}</label>
                 <div class="row">
@@ -12,11 +12,12 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary btn-block" (click)="chooseQuestion(question)">Pilih</button>
+                        <button type="submit" class="btn btn-primary btn-block" (click)="chooseQuestion(question)" *ngIf="!question.chosen">Pilih</button>
+                        <button type="submit" class="btn btn-primary btn-block" (click)="chooseQuestion(question)" disabled *ngIf="question.chosen">Sedang aktif</button>
                     </div>
                 </div>
             </div>
         </div>
     </ng-container>
-    <h1 *ngIf="chosenCounter == 5" style="color: #fff;text-align: center;margin-top: 30%;">Semua pertanyaan telah terpilih</h1>
+    <!-- <h1 *ngIf="chosenCounter == 5" style="color: #fff;text-align: center;margin-top: 30%;">Semua pertanyaan telah terpilih</h1> -->
 </div>
