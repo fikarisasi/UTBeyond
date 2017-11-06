@@ -20,7 +20,7 @@
                 <div class="animated fadeIn" *ngIf="current_poll == 1">
                   <div class="card" style="width: 100%;">
                     <div class="card-body text-center">
-                      <h5 class="card-title">Apa yang muncul di benak anda ketika mendengar kata “Digital”?</h5>
+                      <h5 class="card-title">Satu kata yang mendeskripsikan "DIGITAL" bagi anda</h5>
                       <angular-tag-cloud
                         [(data)]="dataAnswer1"
                         [width]="options.width"
@@ -33,13 +33,14 @@
                 <div class="animated fadeIn" *ngIf="current_poll == 2">
                   <div class="card card-inverse" style="width: 100%;">
                     <div class="card-body text-center">
-                      <h5 class="card-title">Bisakah anda sukses tanpa menjadi Digital?</h5>
+                      <h5 class="card-title">Menurut anda, seberapa URGENT Digital Transformation bagi UT?</h5>
                       <div class="question2chart">
                         <canvas baseChart
                                 style="display: block; height: 300px"
                                 [data]="doughnutChart2Data"
                                 [labels]="doughnutChart2Labels"
-                                [chartType]="doughnutChart2Type">
+                                [chartType]="doughnutChart2Type"
+                                [colors]="doughnutChart2Colors">
                         </canvas>
                       </div>
                     </div>
@@ -48,7 +49,7 @@
                 <div class="animated fadeIn" *ngIf="current_poll == 3">
                   <div class="card card-inverse" style="width: 100%;">
                     <div class="card-body text-center">
-                      <p class="card-title">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
+                      <p class="card-title">Bagaimana perasaan anda terkait dimulainya digitalization di UT?</p>
                       <div class="question2chart">
                         <canvas baseChart
                         style="display: block; height: 300px"
@@ -63,7 +64,7 @@
               <div class="animated fadeIn" *ngIf="current_poll == 4">
                   <div class="card card-inverse" style="width: 100%;">
                     <div class="card-body text-center">
-                      <p class="card-title">Apakah UT sebaiknya berubah menjadi organisasi digital?</p>
+                      <p class="card-title">Apakah kita semua berkomitmen untuk mensukseskan UT Digitalization?</p>
                       <div class="question2chart">
                         <canvas baseChart
                         style="display: block; height: 300px"
@@ -75,21 +76,6 @@
                   </div>
                 </div>
               </div>
-                <div class="animated fadeIn" *ngIf="current_poll == 5">
-                  <div class="card card-inverse" style="width: 100%;">
-                    <div class="card-body text-center">
-                      <p class="card-title">Bisakah kita hari ini berpegang teguh untuk melakukan “THINKING” digital dalam cara kita bekerja?</p>
-                      <div class="question2chart">
-                        <canvas baseChart
-                                style="display: block; height: 300px"
-                                [data]="doughnutChart5Data"
-                                [labels]="doughnutChart5Labels"
-                                [chartType]="doughnutChart5Type">
-                        </canvas>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
               <div class="card-footer">
                 <div class="row">

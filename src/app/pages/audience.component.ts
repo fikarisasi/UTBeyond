@@ -85,7 +85,7 @@ export class AudienceComponent {
 	}
 
 	public next() {
-		if(this.current_poll < 5) {
+		if(this.current_poll < 4) {
 			this.current_poll++
 		}
 	}
