@@ -25,22 +25,15 @@ export class DisplayComponent {
 	public doughnutChart2Data:number[] = [0,0,0,0,0];
 	public doughnutChart2Type:string = 'doughnut';
 	public doughnutChart2Colors: Array<any> = [
-    { // first color
-      backgroundColor: 'rgba(225,10,24,0.2)',
-      borderColor: 'rgba(225,10,24,0.2)',
-      pointBackgroundColor: 'rgba(225,10,24,0.2)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(225,10,24,0.2)'
-    },
-    { // second color
-      backgroundColor: 'rgba(225,10,24,0.2)',
-      borderColor: 'rgba(225,10,24,0.2)',
-      pointBackgroundColor: 'rgba(225,10,24,0.2)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(225,10,24,0.2)'
-    }];
+		{ // first color
+			backgroundColor: ['#feda00','#fff','rgba(225,10,24,0.2)','#3399cc','#ee9a00'],
+			borderColor: '#474842',
+			pointBackgroundColor: 'rgba(225,10,24,0.2)',
+			pointBorderColor: '#fff',
+			pointHoverBackgroundColor: '#fff',
+			pointHoverBorderColor: 'rgba(225,10,24,0.2)'
+		}
+	];
 
 	public doughnutChart3Labels:string[] = ['Excited', 'Biasa saja', 'Takut'];
 	public doughnutChart3Data:number[] = [0,0, 0];
