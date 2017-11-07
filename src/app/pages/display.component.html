@@ -1,9 +1,13 @@
-<ng-container *ngIf="displayOff">
-  <div class="animated fadeIn text-center" style="height: 100vh;display: grid;">
-      <button class="btn btn-lg btn-warning" style="margin: 25% 40%;border-radius: 100px;font-size: 25px;color: #000" (click)="displayOff=!displayOff">KICK OFF WAVE 1</button>
+<video controls autoplay *ngIf="playVideo" style="position: fixed;width: 100%;height: 100%;">
+  <source src="http://life2play.net/media/UTBeyond-Digital.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<ng-container *ngIf="displayOff && !playVideo">
+  <div class="animated fadeIn text-center bg-black" style="height: 100vh;display: grid;">
+      <button class="btn btn-lg btn-warning" style="margin: 25% 40%;border-radius: 100px;font-size: 25px;color: #000" (click)="playVideo=!playVideo">KICK OFF WAVE 1</button>
   </div>
 </ng-container>
-<ng-container>
+<ng-container *ngIf="!displayOff">
 <div class="align-items-center bg-black">
   <header class="navbar navbar-ut">
     <a class="navbar-brand" href="#">#UT<strong>BEYOND</strong></a>
@@ -109,8 +113,8 @@
               
             </ng-container>
             <ng-container *ngIf="showReadyKickOff">
-              <button class="btn btn-lg btn-success" style="width: 100%;margin-top: 20px;margin-bottom: 10px;border-radius: 100px;" (click)="displayOff=!displayOff">Ready to kick off!</button>
-              <p>{{komentars.length}} komentar terkumpul</p>
+              <button class="btn btn-lg btn-warning" style="width: 100%;margin-top: 20px;margin-bottom: 10px;border-radius: 10px;" (click)="displayOff=!displayOff">Ready to kick off!</button>
+              <p style="color: #fff">{{komentars.length}} komentar terkumpul</p>
               <small class="text-muted" (click)="clickSetTarget()">Atur target</small>
             </ng-container>
             <div class="card-footer" *ngIf="displayInputTarget">

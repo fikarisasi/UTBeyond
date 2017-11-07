@@ -64,6 +64,7 @@ export class DisplayComponent {
 	persenKomentar = 0;
 	showReadyKickOff = false;
 	displayOff = false;
+	playVideo = false;
 
 	constructor(public contentService: ContentService) { 
 		this.loadParticipant();
