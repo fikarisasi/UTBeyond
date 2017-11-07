@@ -1,25 +1,32 @@
-<div class="question-container container">
+<div class="align-items-center bg-black">
+  <header class="navbar navbar-ut" style="padding-bottom:20px;">
+    <a class="navbar-brand" href="#">#UT<strong>BEYOND</strong></a>
+  </header>
+<div class="question-container container card-progressbar-ut" style="height:100%; padding:20px;">
+    <label style="color: #fff" for="question-{{ question.index }}"><h3>Pilih Pertanyaan</h3></label>
     <ng-container *ngFor="let question of questions; let index = index">
-        <div class="row mt-2">
+        <div class="row mt-2" style="margin: auto; width: 100%; padding: 10px;">
             <div class="col">
-                <label style="color: #fff" for="question-{{ question.index }}">Pertanyaan {{ question.index }}</label>
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
-                                <h4 style="padding: 25px">{{ question.question }}</h4>
+                            <div class="row card-body">
+                                <div class="col-md-10">
+                                    <h4 style="padding: 25px">{{ question.index }}. {{ question.question }}</h4>
+                                </div>
+                                <div class="col-md-2" style="padding:10px;">
+                                    <button type="submit" style="background: #feda00;" class="btn btn-block" (click)="chooseQuestion(question)" *ngIf="!question.chosen">Pilih</button>
+                                    <button type="submit" class="btn btn-primary btn-block" (click)="chooseQuestion(question)" disabled *ngIf="question.chosen">Sedang aktif</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary btn-block" (click)="chooseQuestion(question)" *ngIf="!question.chosen">Pilih</button>
-                        <button type="submit" class="btn btn-primary btn-block" (click)="chooseQuestion(question)" disabled *ngIf="question.chosen">Sedang aktif</button>
                     </div>
                 </div>
             </div>
         </div>
     </ng-container>
-    <button type="submit" class="btn btn-primary btn-block" (click)="chooseQuestion({index: 0})">Akhiri Vote</button>
+    <button type="submit" style="background: #feda00;" class="btn btn-block" (click)="chooseQuestion({index: 0})">Akhiri Vote</button>
 
     <!-- <h1 *ngIf="chosenCounter == 5" style="color: #fff;text-align: center;margin-top: 30%;">Semua pertanyaan telah terpilih</h1> -->
+</div>
 </div>
